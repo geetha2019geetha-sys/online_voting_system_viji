@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Election Results</title>
+
+<style>
+    body{
+        margin:0;
+        font-family:Arial;
+        background:#f4f6f9;
+        text-align:center;
+    }
+
+    .header{
+        background:#002147;
+        color:white;
+        padding:20px;
+    }
+
+    h2{
+        margin:0;
+    }
+
+    .result-box{
+        width:60%;
+        margin:40px auto;
+        background:white;
+        padding:30px;
+        border-radius:10px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:20px;
+    }
+
+    th{
+        background:#002147;
+        color:white;
+        padding:12px;
+    }
+
+    td{
+        padding:12px;
+        border-bottom:1px solid #ddd;
+    }
+
+    tr:hover{
+        background:#f1f1f1;
+    }
+
+    .logout-btn{
+        display:inline-block;
+        margin-top:20px;
+        padding:10px 25px;
+        background:#002147;
+        color:white;
+        text-decoration:none;
+        border-radius:5px;
+    }
+
+    .logout-btn:hover{
+        background:#004080;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>🗳️ Voting Results</h2>
+</div>
+
+<div class="result-box">
+
+    <table>
+        <tr>
+            <th>Party</th>
+            <th>Votes</th>
+        </tr>
+
+        {% for party, count in votes.items() %}
+        <tr>
+            <td>{{ party }}</td>
+            <td>{{ count }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <a href="/" class="logout-btn">Logout</a>
+
+</div>
+
+</body>
+</html>

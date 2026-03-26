@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vote Successful</title>
+
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial;
+            overflow: hidden;
+            background: url("{{ url_for('static', filename='success_bg.jpg') }}") no-repeat center center fixed;
+background-size: cover;
+
+        }
+
+        h1 {
+            color: green;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 22px;
+            top: 50%;
+            opacity: 1;
+            animation: shoot 2s ease-out forwards;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>✅ Vote Submitted Successfully!</h1>
+    <p>Thank you for casting your vote.</p>
+
+    <br><br>
+
+    <a href="/home">
+        <button>Back to Home</button>
+    </a>
+
+    <script>
+        function createConfetti(side) {
+            for (let i = 0; i < 30; i++) {
+
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+
+                const colors = ["#ff3b3b","#ffd93b","#3b82ff","#22c55e","#ff3bf5"];
+                confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
+
+                confetti.style.left = side === "left" ? "0px" : "100vw";
+
+                let x = side === "left"
+                    ? Math.random() * 800 + "px"
+                    : -Math.random() * 800 + "px";
+
+                let y = (Math.random() * 600 - 300) + "px";
+
+                confetti.style.setProperty("--x", x);
+                confetti.style.setProperty("--y", y);
+
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 2000);
+            }
+        }
+
+        // Continuous boom effect
+        setInterval(() => {
+            createConfetti("left");
+            createConfetti("right");
+        }, 600); // speed of boom (lower = faster)
+    </script>
+
+</body>
+</html>

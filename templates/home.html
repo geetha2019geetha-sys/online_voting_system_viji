@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Voting System</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f6f9;
+}
+
+/* WHITE EMBLEM */
+.white-logo{
+    filter: brightness(0) invert(1);
+}
+
+/* VOTE LOGO */
+.vote-logo{
+    height:60px;
+    background:white;
+    border-radius:50%;
+    padding:5px;
+}
+
+/* TOP BAR */
+.topbar{
+    background:#003366;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 20px;
+    font-size:14px;
+}
+
+/* HEADER */
+.header{
+    background:#002147;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+/* LOGOS */
+.logo-left img{
+    height:60px;
+}
+
+.logo-right img{
+    height:55px;
+}
+
+/* CENTER TITLE */
+.header-center{
+    text-align:center;
+}
+
+.header-center h2{
+    margin:5px;
+}
+
+.header-center p{
+    margin:0;
+    font-size:14px;
+}
+
+/* NAVBAR */
+nav{
+    background: linear-gradient(to right, orange, white, green);
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    margin:20px;
+    text-decoration:none;
+    font-weight:bold;
+    color:black;
+}
+
+/* HERO */
+.hero{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding:80px;
+
+    background-image: url("{{ url_for('static', filename='bg.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height:450px;
+    color:white;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:1;
+}
+
+.hero-text{
+    position:relative;
+    z-index:2;
+    text-align:right;
+    max-width:450px;
+}
+
+.btn{
+    padding:12px 30px;
+    background:green;
+    color:white;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* SECTIONS */
+.section{
+    padding:50px 20px;
+    text-align:center;
+    background:white;
+}
+
+.section-gray{
+    background:#f4f6f9;
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.feature-box{
+    max-width:200px;
+}
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+footer{
+    background:#002147;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div>{{ texts.gov }}</div>
+
+    <div>
+        Language :
+        <select onchange="location=this.value">
+            <option value="/set_language/en" {% if lang=='en' %}selected{% endif %}>English</option>
+            <option value="/set_language/hi" {% if lang=='hi' %}selected{% endif %}>Hindi</option>
+            <option value="/set_language/ta" {% if lang=='ta' %}selected{% endif %}>Tamil</option>
+            <option value="/set_language/te" {% if lang=='te' %}selected{% endif %}>Telugu</option>
+            <option value="/set_language/ml" {% if lang=='ml' %}selected{% endif %}>Malayalam</option>
+        </select>
+    </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+
+    <div class="logo-left">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" class="white-logo">
+    </div>
+
+    <div class="header-center">
+
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            <h2 style="display:inline;">
+                {{ texts.title }}
+            </h2>
+        </marquee>
+
+        <p>{{ texts.ministry }}</p>
+
+    </div>
+
+    <div class="logo-right">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" class="vote-logo">
+    </div>
+
+</div>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="/">{{ texts.home }}</a>
+    <a href="/about">{{ texts.about }}</a>
+    <a href="/service">{{ texts.service }}</a>
+
+    <!-- MANIFESTO LANGUAGE ADDED -->
+    <a href="/manifesto">{{ texts.manifesto }}</a>
+
+    <!-- ✅ RESULT BUTTON ADDED (ONLY ADDITION) -->
+    <a href="/admin">Result</a>
+
+    <a href="/login">{{ texts.login }}</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-text">
+        <h1>{{ texts.welcome }}</h1>
+        <p>{{ texts.tagline }}</p>
+        <a href="/login">
+            <button class="btn">{{ texts.vote }}</button>
+        </a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section">
+    <h2>About Online Voting</h2>
+    <p style="max-width:800px;margin:auto;">
+        Online Voting System is a secure digital platform that enables citizens 
+        to cast votes remotely. It ensures transparency, eliminates duplicate 
+        voting, and provides instant election results.
+    </p>
+</section>
+
+<!-- FEATURES -->
+<section class="section section-gray">
+    <h2>Key Features</h2>
+
+    <div class="features">
+
+        <div class="feature-box">
+            <h3>🔐 Secure Voting</h3>
+            <p>Advanced authentication system</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>🧍 One Person One Vote</h3>
+            <p>Duplicate votes blocked</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>⚡ Instant Results</h3>
+            <p>Live vote counting</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>🌐 Multi Language</h3>
+            <p>Accessible for all citizens</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="section">
+    <h2>Election Statistics</h2>
+
+    <div class="stats">
+        <div>
+            <h1>10,000+</h1>
+            <p>Registered Voters</p>
+        </div>
+
+        <div>
+            <h1>8,500+</h1>
+            <p>Votes Casted</p>
+        </div>
+
+        <div>
+            <h1>6</h1>
+            <p>Political Parties</p>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-gray">
+    <h2>How It Works</h2>
+
+    <ol style="max-width:600px;margin:auto;text-align:left;line-height:1.8;">
+        <li>Register with Voter ID</li>
+        <li>Login securely</li>
+        <li>Select your party</li>
+        <li>Submit your vote</li>
+        <li>View election results</li>
+    </ol>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Online Voting System</p>
+    <p>Election Commission of India</p>
+</footer>
+
+</body>
+</html>

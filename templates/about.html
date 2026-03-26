@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About - Online Voting System</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f6f9;
+}
+/* WHITE EMBLEM */
+.white-logo{
+    filter: brightness(0) invert(1);
+}
+/* VOTE LOGO */
+.vote-logo{
+    height:60px;
+    background:white;
+    border-radius:50%;
+    padding:5px;
+}
+/* HEADER */
+.header{
+    background:#002147;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+/* LOGOS */
+.logo-left img{
+    height:60px;
+}
+.logo-right img{
+    height:55px;
+}
+/* CENTER TITLE */
+.header-center{
+    text-align:center;
+}
+.header-center h2{
+    margin:5px;
+}
+.header-center p{
+    margin:0;
+    font-size:14px;
+}
+/* CONTENT */
+.container{
+    padding:40px;
+    max-width:1000px;
+    margin:auto;
+    background:white;
+}
+/* SECTIONS */
+.section{
+    margin-bottom:40px;
+}
+.section h2{
+    color:#002147;
+}
+.section p{
+    line-height:1.7;
+}
+/* BUTTON */
+.btn{
+    display:inline-block;
+    padding:10px 25px;
+    background:green;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+/* FOOTER */
+footer{
+    background:#002147;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER WITH LOGOS -->
+<div class="header">
+
+    <!-- LEFT EMBLEM -->
+    <div class="logo-left">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" class="white-logo">
+    </div>
+
+    <!-- CENTER TEXT -->
+    <div class="header-center">
+        <h2>About Online Voting System</h2>
+        <p>Election Commission of India</p>
+    </div>
+
+    <!-- RIGHT LOGO -->
+    <div class="logo-right">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" class="vote-logo">
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+    <div class="section">
+        <h2>Introduction</h2>
+        <p>
+            The Online Voting System is a digital platform developed to modernize
+            the election process. It allows citizens to cast their votes securely
+            from anywhere without visiting polling booths.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is to make voting accessible, transparent, and secure
+            using modern technology. We aim to increase voter participation
+            and ensure fair elections.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Security & Transparency</h2>
+        <p>
+            The system uses voter ID verification and authentication to prevent
+            duplicate voting. Each voter can vote only once.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Technology Used</h2>
+        <p>
+            This system is built using Flask (Python), HTML, CSS, JavaScript,
+            and database technologies to ensure speed, reliability, and security.
+        </p>
+    </div>
+
+    <!-- BENEFITS -->
+    <div class="section">
+        <h2>Benefits</h2>
+        <p>
+            • Vote from anywhere<br>
+            • Instant result counting<br>
+            • Eco-friendly paperless system<br>
+            • Saves time and cost
+        </p>
+    </div>
+
+    <a href="/" class="btn">← Back to Home</a>
+
+</div>
+
+<footer>
+    © 2026 Online Voting System | Government of India
+</footer>
+
+</body>
+</html>

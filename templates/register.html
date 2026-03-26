@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Voter Registration</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+
+    /* BACKGROUND IMAGE */
+    background-image:url("{{ url_for('static', filename='registerbg.jpg') }}");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:40px 0;
+}
+
+/* ===== TOP HEADING ===== */
+.page-title{
+    font-size:38px;
+    font-weight:bold;
+    color:white;
+    text-align:center;
+    margin-bottom:25px;
+    background:rgba(0,0,0,0.35);
+    padding:15px 40px;
+    border-radius:20px;
+    backdrop-filter:blur(6px);
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* REGISTER FORM BOX */
+.form-box{
+    background:rgba(255,255,255,0.95);
+    padding:30px 40px;
+    border-radius:15px;
+    width:380px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    color:black;
+    font-weight:bold;
+}
+
+/* INPUT STYLE */
+input{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+/* BUTTON */
+button{
+    margin-top:15px;
+    width:100%;
+    padding:10px;
+    background:#2d6cdf;
+    color:white;
+    border:none;
+    border-radius:20px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1b4fbf;
+}
+
+/* LOGIN LINK */
+p{
+    text-align:center;
+    margin-top:15px;
+}
+
+a{
+    text-decoration:none;
+    color:#2d6cdf;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== TOP HEADING ===== -->
+<div class="page-title">
+    Voter Registration Form
+</div>
+
+<!-- ===== REGISTER FORM ===== -->
+<div class="form-box">
+
+<form method="POST">
+
+Name:<br>
+<input type="text" name="name" required><br><br>
+
+Email:<br>
+<input type="email" name="email" required><br><br>
+
+Address:<br>
+<input type="text" name="address" required><br><br>
+
+Phone:<br>
+<input type="text" name="phone"
+       maxlength="10"
+       pattern="[0-9]{10}"
+       title="Enter 10 digit phone number"
+       required><br><br>
+
+Aadhar Number:<br>
+<input type="text" name="aadhar"
+       maxlength="12"
+       pattern="[0-9]{12}"
+       title="Enter 12 digit Aadhar number"
+       required><br><br>
+
+Voter ID:<br>
+<input type="text" name="voterid"
+       maxlength="8"
+       pattern="[0-9]{8}"
+       title="Enter 8 digit Voter ID"
+       required><br><br>
+
+Username:<br>
+<input type="text" name="username" required><br><br>
+
+Password:<br>
+<input type="password" name="password" required><br><br>
+
+<button type="submit">Register</button>
+
+</form>
+
+<p>Already Registered? <a href="/login">Login Here</a></p>
+
+</div>
+
+</body>
+</html>

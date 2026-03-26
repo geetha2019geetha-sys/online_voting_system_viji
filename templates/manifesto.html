@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Party Manifesto</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f4f6f9;
+}
+
+/* HEADER */
+header{
+    background:#0b3d91;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+/* CONTAINER */
+.container{
+    width:90%;
+    margin:auto;
+    margin-top:30px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+h2{
+    color:#0b3d91;
+}
+.constituency-btn{
+    text-align:center;
+    margin-top:40px;
+    margin-bottom:40px;
+}
+
+.constituency-btn button{
+    padding:14px 30px;
+    background:#0b3d91;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.constituency-btn button:hover{
+    background:#062a63;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Party Manifesto (Katchi Kolkai)</h1>
+    <p>Election Policies & Participant Details</p>
+</header>
+
+<div class="container">
+
+   <!-- PARTY 1 - DMK -->
+<div class="card" style="border-left:6px solid #ff0000; display:flex; gap:20px; align-items:flex-start;">
+    <!-- Policy List -->
+    <div style="flex:2;">
+        <h2>DMK</h2>
+        <ul>
+            <li>Free Education Scheme</li>
+            <li>Women Empowerment</li>
+            <li>Job Creation Programs</li>
+            <li>Healthcare Access for All</li>
+            <li>Environmental Sustainability Initiatives</li>
+            <li>Affordable Housing for All</li>
+            <li>Digital Literacy & Internet Access in Rural Areas</li>
+            <li>Support for Arts, Culture & Heritage</li>
+            <li>Renewable Energy Promotion (solar, wind projects)</li>
+            <li>Child Nutrition & Midday Meal Improvement</li>
+            <li>Public Transport Expansion & Modernization</li>
+            <li>Anti-Corruption Transparency Measures</li>
+            <li>Affordable Healthcare for Senior Citizens</li>
+            <li>Skill Development & Vocational Training</li>
+            <li>Women Safety & Legal Aid Programs</li>
+            <li>Support for Startups & Small Businesses</li>
+            <li>Urban Green Spaces & Parks Development</li>
+            <li>Digital Governance & E-Services Expansion</li>
+        </ul>
+        <p><b>Election Participants:</b> 120 Candidates</p>
+    </div>
+
+    <!-- Image on the Right -->
+    <div style="flex:1;">
+        <img src="{{ url_for('static', filename='dmk_policy_image.jpg') }}" alt="DMK Policies" style="width:100%; border-radius:10px; object-fit:cover;">
+
+    </div>
+</div>
+
+
+    <!-- PARTY 2 - ADMK -->
+<div class="card" style="border-left:6px solid #007bff; display:flex; gap:20px; align-items:flex-start;">
+    <!-- Image on Left -->
+    <div style="flex:1;">
+        <img src="static/admk_policy_image.jpg" 
+             alt="ADMK Policies" 
+             style="width:100%; border-radius:10px; object-fit:cover;">
+    </div>
+
+    <!-- Policy List on Right -->
+    <div style="flex:2;">
+        <h2>ADMK</h2>
+        <ul>
+            <li>Farmer Support Funds</li>
+            <li>Free Medical Camps</li>
+            <li>Rural Development</li>
+            <li>Women & Child Welfare Programs</li>
+            <li>Urban Infrastructure Improvement</li>
+            <li>Affordable Housing for Low-Income Families</li>
+            <li>Clean Drinking Water Projects</li>
+            <li>Renewable Energy Promotion</li>
+            <li>Digital Literacy & e-Governance Access</li>
+            <li>Public Health & Vaccination Drives</li>
+            <li>Skill Development & Employment Programs</li>
+            <li>Transport & Road Modernization</li>
+            <li>Support for Small & Medium Enterprises</li>
+            <li>Environmental Conservation Initiatives</li>
+            <li>Senior Citizens Welfare Programs</li>
+            <li>Child Nutrition & Midday Meal Improvements</li>
+        </ul>
+        <p><b>Election Participants:</b> 110 Candidates</p>
+    </div>
+</div>
+
+
+    <!-- PARTY 3 - BJP -->
+<div class="card" style="border-left:6px solid #ff9933; display:flex; gap:20px; align-items:flex-start;">
+    <!-- Policy List on Left -->
+    <div style="flex:2;">
+        <h2>BJP</h2>
+        <ul>
+            <li>Digital India Expansion</li>
+            <li>Startup Funding</li>
+            <li>Infrastructure Growth</li>
+            <li>Smart City Projects</li>
+            <li>Skill Development & Vocational Training</li>
+            <li>Make in India Initiatives</li>
+            <li>Renewable Energy Promotion (solar & wind)</li>
+            <li>Public Transportation Modernization</li>
+            <li>Healthcare Access & Insurance Schemes</li>
+            <li>Education Loan Assistance</li>
+            <li>Rural Development & Irrigation Projects</li>
+            <li>Support for Small & Medium Enterprises (SMEs)</li>
+            <li>Women Empowerment Programs</li>
+            <li>Urban Green Spaces & Parks Development</li>
+            <li>Anti-Corruption & Governance Transparency</li>
+            <li>Digital Governance & E-Services Expansion</li>
+        </ul>
+        <p><b>Election Participants:</b> 95 Candidates</p>
+    </div>
+
+    <!-- Image on Right -->
+    <div style="flex:1;">
+        <img src="static/bjp_policy_image.jpg" 
+             alt="BJP Policies" 
+             style="width:100%; border-radius:10px; object-fit:cover;">
+    </div>
+</div>
+
+
+   <!-- PARTY 4 - Congress -->
+<div class="card" style="border-left:6px solid #28a745; display:flex; gap:20px; align-items:flex-start;">
+    <!-- Image on Left -->
+    <div style="flex:1;">
+        <img src="static/congress_policy_image.jpg" 
+             alt="Congress Policies" 
+             style="width:100%; border-radius:10px; object-fit:cover;">
+    </div>
+
+    <!-- Policy List on Right -->
+    <div style="flex:2;">
+        <h2>Congress</h2>
+        <ul>
+            <li>Youth Employment Plan</li>
+            <li>Health Insurance</li>
+            <li>Education Loan Waiver</li>
+            <li>Affordable Housing Schemes</li>
+            <li>Renewable Energy Promotion</li>
+            <li>Women Empowerment & Safety Programs</li>
+            <li>Child Nutrition & Midday Meal Improvement</li>
+            <li>Skill Development & Vocational Training</li>
+            <li>Rural Development & Irrigation Projects</li>
+            <li>Support for Small Businesses & Startups</li>
+            <li>Public Healthcare Expansion</li>
+            <li>Digital Governance & e-Services Access</li>
+            <li>Environmental Conservation Initiatives</li>
+            <li>Transport & Road Modernization</li>
+            <li>Arts, Culture & Heritage Promotion</li>
+            <li>Senior Citizens Welfare Programs</li>
+        </ul>
+        <p><b>Election Participants:</b> 100 Candidates</p>
+    </div>
+</div>
+
+    <!-- PARTY 5 - TVK -->
+<div class="card" style="border-left:6px solid #800080; display:flex; gap:20px; align-items:flex-start;">
+    <!-- Policy List on Left -->
+    <div style="flex:2;">
+        <h2>TVK</h2>
+        <ul>
+            <li>Local Employment Initiatives</li>
+            <li>Education & Skill Training Programs</li>
+            <li>Healthcare Expansion & Access</li>
+            <li>Rural Infrastructure Development</li>
+            <li>Affordable Housing for Communities</li>
+            <li>Support for Small & Medium Enterprises (SMEs)</li>
+            <li>Women & Child Welfare Programs</li>
+            <li>Environmental Conservation Projects</li>
+            <li>Digital Literacy & E-Governance Access</li>
+            <li>Public Transport & Road Modernization</li>
+            <li>Renewable Energy Initiatives</li>
+            <li>Youth Empowerment & Vocational Training</li>
+            <li>Community Development & Welfare Schemes</li>
+            <li>Senior Citizens Welfare Programs</li>
+            <li>Promotion of Arts, Culture & Heritage</li>
+        </ul>
+        <p><b>Election Participants:</b> 50 Candidates</p>
+    </div>
+
+    <!-- Image on Right -->
+    <div style="flex:1;">
+        <img src="static/tvk_policy_image.jpg" 
+             alt="TVK Policies" 
+             style="width:100%; border-radius:10px; object-fit:cover;">
+    </div>
+</div>
+
+   
+    <!-- PARTY 7 - NTK -->
+    <div class="card" style="border-left:6px solid #ff6600; display:flex; gap:20px; align-items:flex-start;">
+        <!-- Image on Left -->
+        <div style="flex:1;">
+            <img src="static/ntk_policy_image.jpg" 
+                 alt="NTK Policies" 
+                 style="width:100%; border-radius:10px; object-fit:cover;">
+        </div>
+    
+        <!-- Policy List on Right -->
+        <div style="flex:2;">
+            <h2>NTK</h2>
+            <ul>
+                <li>Regional Development Programs</li>
+                <li>Fishermen Welfare Schemes</li>
+                <li>Small Business Support</li>
+                <li>Community Health Initiatives</li>
+                <li>Local Education & Training</li>
+                <li>Affordable Housing Projects</li>
+                <li>Women & Child Welfare Programs</li>
+                <li>Renewable Energy & Environmental Initiatives</li>
+                <li>Rural Infrastructure Development</li>
+                <li>Skill Development & Vocational Training</li>
+                <li>Public Transport & Road Improvement</li>
+                <li>Digital Literacy & E-Governance Access</li>
+                <li>Youth Empowerment Programs</li>
+                <li>Support for Cultural & Community Activities</li>
+                <li>Senior Citizens Welfare Programs</li>
+            </ul>
+            <p><b>Election Participants:</b> 30 Candidates</p>
+        </div>
+    </div>
+     <!-- PARTY 6 -->
+     <div class="card" style="border-left:6px solid #8B4513; display:flex; gap:20px; align-items:flex-start;">
+        <!-- Policy List on Left -->
+        <div style="flex:2;">
+            <h2>PMK</h2>
+            <ul>
+                <li>Agriculture Support Programs</li>
+                <li>Rural Infrastructure Development</li>
+                <li>Youth Empowerment & Education</li>
+                <li>Skill Development & Vocational Training</li>
+                <li>Healthcare Access for Rural Communities</li>
+                <li>Women & Child Welfare Programs</li>
+                <li>Affordable Housing Schemes</li>
+                <li>Small Business & Entrepreneurship Support</li>
+                <li>Renewable Energy & Environmental Initiatives</li>
+                <li>Public Transport & Road Modernization</li>
+                <li>Digital Literacy & E-Governance Access</li>
+                <li>Senior Citizens Welfare Programs</li>
+                <li>Community Health & Nutrition Programs</li>
+                <li>Arts, Culture & Heritage Promotion</li>
+                <li>Anti-Corruption & Transparency Measures</li>
+            </ul>
+            <p><b>Election Participants:</b> 25 Candidates</p>
+        </div>
+    
+        <!-- Image on Right -->
+        <div style="flex:1;">
+            <img src="static/pmk_policy_image.jpg" 
+                 alt="PMK Policies" 
+                 style="width:100%; border-radius:10px; object-fit:cover;">
+        </div>
+    </div>
+
+</div>
+
+<!-- ADD BUTTON HERE -->
+<div class="constituency-btn">
+    <form action="{{ url_for('constituency') }}" method="get">
+        <button type="submit">View Constituency Details</button>
+    </form>
+</div>
+
+
+</div>   <!-- container closing -->
+
+</body>
+</html>
