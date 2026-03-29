@@ -2,25 +2,29 @@
 <html>
 <head>
     <title>Admin Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body{
-            font-family: Arial;
-            background: linear-gradient(to right, #002147, #003366);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            margin:0;
-        }
+    font-family: Arial;
+    background: linear-gradient(to right, #002147, #003366);
 
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;   /* better than height */
+    margin:0;
+    padding:15px;       /* important for mobile */
+}
         .login-box{
             background:white;
-            padding:40px;
+            padding:30px;
             border-radius:15px;
             box-shadow:0 5px 20px rgba(0,0,0,0.3);
             text-align:center;
-            width:350px;
+            width:100%;
+            max-width:350px;
         }
 
         h2{
@@ -30,11 +34,11 @@
 
         input{
             width:100%;
-            padding:12px;
+            padding:14px;
             margin:10px 0;
             border:1px solid #ccc;
             border-radius:8px;
-            font-size:14px;
+            font-size:15px;
         }
 
         input:focus{
@@ -44,7 +48,7 @@
 
         button{
             width:100%;
-            padding:12px;
+            padding:14px;
             background:#002147;
             color:white;
             border:none;
@@ -69,6 +73,35 @@
         .back-link:hover{
             text-decoration:underline;
         }
+
+        @media (max-width: 768px){
+
+    .login-box{
+        padding:25px;
+    }
+
+    h2{
+        font-size:20px;
+    }
+
+    input{
+        padding:12px;
+        font-size:14px;
+    }
+
+    button{
+        padding:12px;
+        font-size:15px;
+    }
+
+    .back-link{
+        font-size:13px;
+    }
+}
+
+button:active{
+    transform:scale(0.97);
+}
 
     </style>
 </head>

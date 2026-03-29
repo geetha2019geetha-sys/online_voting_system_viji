@@ -2,21 +2,22 @@
 <html>
 <head>
     <title>Online Voting Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body{
-            margin:0;
-            font-family:Arial;
-            /* BACKGROUND IMAGE */
-            background-image:url("{{ url_for('static', filename='loginbg.jpg') }}");
-            background-size:cover;
-            background-position:center;
-            background-repeat:no-repeat;
-            height:100vh;
-            display:flex;
-            justify-content:flex-end;
-            align-items:center;
-            padding-right:80px;
-        }
+    margin:0;
+    font-family:Arial;
+    background-image:url("{{ url_for('static', filename='loginbg.jpg') }}");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;   /* CENTER */
+    align-items:center;
+    padding:20px;
+}
 
         /* TOP RIGHT MENU BAR */
         .top-menu{
@@ -47,13 +48,14 @@
 
         /* LOGIN BOX */
         .login-box{
-            background:rgba(255,255,255,0.2);
-            padding:40px;
-            width:350px;
-            border-radius:15px;
-            text-align:center;
-            backdrop-filter:blur(6px);
-        }
+                 background:rgba(255,255,255,0.2);
+                 padding:30px;
+                 width:100%;
+                 max-width:350px;   /* Important */
+                 border-radius:15px;
+                 text-align:center;
+                 backdrop-filter:blur(8px);
+}
 
         h2{
             margin-bottom:20px;
@@ -98,6 +100,53 @@
             background:darkgreen;
         }
 
+        @media (max-width: 768px){
+
+    body{
+        justify-content:center;
+        align-items:center;
+        padding:15px;
+    }
+
+    .login-box{
+        padding:25px;
+    }
+
+    .top-menu{
+        position:static;
+        width:100%;
+        justify-content:center;
+        margin-bottom:15px;
+    }
+
+    .top-menu a{
+        margin:5px;
+        font-size:12px;
+        padding:6px 12px;
+    }
+
+    h2{
+        font-size:18px;
+    }
+
+    input{
+        padding:12px;
+    }
+
+    button{
+        width:100%;   /* full width button */
+    }
+
+    .register-btn{
+        width:100%;
+        display:block;
+    }
+}
+
+button:active,
+.register-btn:active{
+    transform:scale(0.97);
+}
     </style>
 </head>
 

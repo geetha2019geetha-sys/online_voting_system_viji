@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Services - Online Voting System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
@@ -104,6 +105,61 @@ footer{
     margin-top:40px;
 }
 
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px){
+
+    .header{
+        flex-direction:column;
+        text-align:center;
+        gap:10px;
+    }
+
+    .logo-left img,
+    .logo-right img{
+        height:45px;
+    }
+
+    .header-center h2{
+        font-size:18px;
+    }
+
+    .header-center p{
+        font-size:12px;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+    .services{
+        grid-template-columns: 1fr; /* Single column */
+        gap:20px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .card h1{
+         font-size:32px;
+         background:#f0f4ff;
+         display:inline-block;
+         padding:10px;
+         border-radius:50%;
+    }
+
+    .card h3{
+        font-size:18px;
+    }
+
+    footer{
+        font-size:14px;
+        padding:15px;
+    }
+}
+.card:active{
+    transform:scale(0.98);
+}
 </style>
 </head>
 
@@ -120,8 +176,8 @@ footer{
 
     <!-- CENTER TITLE -->
     <div class="header-center">
-        <h2>Our Services</h2>
-        <p>Election Commission of India</p>
+        <h2>{{ texts.service_title }}</h2>
+        <p>{{ texts.eci }}</p>
     </div>
 
     <!-- RIGHT LOGO -->
@@ -140,72 +196,72 @@ footer{
         <!-- 1 -->
         <div class="card">
             <h1>🧾</h1>
-            <h3>Voter Registration</h3>
+            <h3>{{ texts.reg_title }}</h3>
             <p>
-                Citizens can register online using Voter ID and Aadhaar details.
+                {{ texts.reg_desc }}
             </p>
         </div>
 
         <!-- 2 -->
         <div class="card">
             <h1>🔐</h1>
-            <h3>Secure Login</h3>
+            <h3>{{ texts.login_title }}</h3>
             <p>
-                Multi-level authentication system ensures safe voter access.
+                {{ texts.login_desc }}
             </p>
         </div>
 
         <!-- 3 -->
         <div class="card">
             <h1>🗳️</h1>
-            <h3>Cast Vote</h3>
+            <h3>{{ texts.vote_title }}</h3>
             <p>
-                Voters can cast their vote digitally from anywhere.
+                {{ texts.vote_desc }}
             </p>
         </div>
 
         <!-- 4 -->
         <div class="card">
             <h1>🚫</h1>
-            <h3>Duplicate Vote Prevention</h3>
+            <h3>{{ texts.dup_title }}</h3>
             <p>
-                System blocks multiple voting by the same voter.
+                {{ texts.dup_desc }}
             </p>
         </div>
 
         <!-- 5 -->
         <div class="card">
             <h1>🌐</h1>
-            <h3>Multi-Language Support</h3>
+            <h3>{{ texts.lang_title }}</h3>
             <p>
-                Available in regional languages for accessibility.
+                {{ texts.lang_desc }}
             </p>
         </div>
 
         <!-- 6 -->
         <div class="card">
             <h1>👤</h1>
-            <h3>Candidate Information</h3>
+            <h3>{{ texts.cand_title }}</h3>
             <p>
-                Displays candidate and party details before voting.
+                {{ texts.cand_desc }}
             </p>
         </div>
 
         <!-- 7 -->
         <div class="card">
             <h1>📊</h1>
-            <h3>Live Results</h3>
+            <h3>{{ texts.live_title }}</h3>
             <p>
-                Instant vote counting with transparent result display.
+                {{ texts.live_desc }}
             </p>
         </div>
 
         <!-- 8 -->
         <div class="card">
             <h1>🛡️</h1>
-            <h3>Admin Monitoring</h3>
+            <h3>{{ texts.admin_title }}</h3>
             <p>
-                Election officers monitor voting and manage the system.
+                {{ texts.admin_desc }}
             </p>
         </div>
 
@@ -215,7 +271,7 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-    © 2026 Online Voting System | Government of India
+    © 2026 {{ texts.footer }}
 </footer>
 
 </body>

@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>About - Online Voting System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body{
     margin:0;
@@ -80,6 +81,52 @@ footer{
     padding:15px;
     margin-top:40px;
 }
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+
+    /* HEADER */
+    .header{
+        flex-direction:column;
+        text-align:center;
+        gap:10px;
+    }
+
+    .logo-left img,
+    .logo-right img{
+        height:45px;
+    }
+
+    /* CONTAINER */
+    .container{
+        padding:20px;
+        max-width:1000px;
+        margin:auto;
+        background:white;
+        border-radius:10px;
+    }
+
+    /* TEXT */
+    .section h2{
+        font-size:20px;
+    }
+
+    .section p{
+        font-size:14px;
+    }
+
+    /* BUTTON */
+    .btn{
+        display:block;
+        width:100%;
+        text-align:center;
+        margin-top:20px;
+    }
+}
+
+.section{
+    margin-bottom:30px;
+}
 </style>
 </head>
 <body>
@@ -91,11 +138,13 @@ footer{
     <div class="logo-left">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" class="white-logo">
     </div>
+    
+     
 
     <!-- CENTER TEXT -->
     <div class="header-center">
-        <h2>About Online Voting System</h2>
-        <p>Election Commission of India</p>
+        <h2>{{ texts.about_title_full }}</h2>
+        <p>{{ texts.eci }}</p>
     </div>
 
     <!-- RIGHT LOGO -->
@@ -109,56 +158,50 @@ footer{
 <div class="container">
 
     <div class="section">
-        <h2>Introduction</h2>
+        <h2>{{ texts.intro_title }}</h2>
         <p>
-            The Online Voting System is a digital platform developed to modernize
-            the election process. It allows citizens to cast their votes securely
-            from anywhere without visiting polling booths.
+            {{ texts.intro_desc }}
         </p>
     </div>
 
     <div class="section">
-        <h2>Our Mission</h2>
+        <h2>{{ texts.mission_title }}</h2>
+        <p>{{ texts.mission_desc }}</p>
+    </div>
+
+    <div class="section">
+        <h2>{{ texts.security_title }}</h2>
         <p>
-            Our mission is to make voting accessible, transparent, and secure
-            using modern technology. We aim to increase voter participation
-            and ensure fair elections.
+           {{ texts.security_desc }}
         </p>
     </div>
 
     <div class="section">
-        <h2>Security & Transparency</h2>
+        <h2>{{ texts.tech_title }}</h2>
         <p>
-            The system uses voter ID verification and authentication to prevent
-            duplicate voting. Each voter can vote only once.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Technology Used</h2>
-        <p>
-            This system is built using Flask (Python), HTML, CSS, JavaScript,
-            and database technologies to ensure speed, reliability, and security.
+            {{ texts.tech_desc }}
         </p>
     </div>
 
     <!-- BENEFITS -->
     <div class="section">
-        <h2>Benefits</h2>
+        <h2>{{ texts.benefits }}</h2>
         <p>
-            • Vote from anywhere<br>
-            • Instant result counting<br>
-            • Eco-friendly paperless system<br>
-            • Saves time and cost
+            <ul>
+                <li>{{ texts.b1 }}</li>
+                <li>{{ texts.b2 }}</li>
+                <li>{{ texts.b3 }}</li>
+                <li>{{ texts.b4 }}</li>
+</ul>
         </p>
     </div>
 
-    <a href="/" class="btn">← Back to Home</a>
+    <a href="/" class="btn">← {{ texts.back }}</a>
 
 </div>
 
 <footer>
-    © 2026 Online Voting System | Government of India
+    © 2026 {{ texts.footer_main }} | {{ texts.footer_gov }}
 </footer>
 
 </body>

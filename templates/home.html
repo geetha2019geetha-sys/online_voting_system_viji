@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Online Voting System</title>
 
 <style>
@@ -164,7 +165,117 @@ footer{
     text-align:center;
     padding:20px;
 }
+#live-time{
+    font-weight:bold;
+    margin-right:20px;
+    font-size:14px;
+}
 
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px){
+
+    /* HEADER */
+    .header{
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .logo-left img,
+    .logo-right img{
+        height: 45px;
+    }
+
+    /* NAVBAR */
+    nav{
+        padding:10px;
+    }
+
+    nav a{
+        display:block;
+        margin:10px 0;
+    }
+
+    /* HERO */
+    .hero{
+        padding:40px 20px;
+        justify-content:center;
+        text-align:center;
+    }
+
+    .hero-text{
+        text-align:center;
+        max-width:100%;
+    }
+
+    .hero h1{
+        font-size:22px;
+    }
+
+    /* FEATURES */
+    .features{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    /* STATS */
+    .stats{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    /* TOPBAR */
+    .topbar{
+        flex-direction:column;
+        gap:5px;
+        text-align:center;
+    }
+
+    #live-time{
+        margin:0;
+    }
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+.btn{
+    width:100%;
+    max-width:250px;
+}
+
+/* MENU BUTTON */
+.menu-btn{
+    display:none;
+    font-size:22px;
+    background:#002147;
+    color:white;
+    border:none;
+    cursor:pointer;
+    padding:10px 15px;
+    width:100%;
+    text-align:left;
+}
+
+/* MOBILE MENU FIX */
+@media (max-width:768px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        flex-direction:column;
+    }
+
+    nav.show{
+        display:flex;
+        background:white;
+    }
+}
 </style>
 </head>
 
@@ -173,6 +284,7 @@ footer{
 <!-- TOP BAR -->
 <div class="topbar">
     <div>{{ texts.gov }}</div>
+    <div id="live-time"></div>
 
     <div>
         Language :
@@ -212,17 +324,16 @@ footer{
 </div>
 
 <!-- NAVBAR -->
-<nav>
+  <!-- MENU BUTTON -->
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<nav id="menu">
+   
+    
     <a href="/">{{ texts.home }}</a>
     <a href="/about">{{ texts.about }}</a>
     <a href="/service">{{ texts.service }}</a>
-
-    <!-- MANIFESTO LANGUAGE ADDED -->
     <a href="/manifesto">{{ texts.manifesto }}</a>
-
-    <!-- ✅ RESULT BUTTON ADDED (ONLY ADDITION) -->
-    <a href="/admin">Result</a>
-
+    <a href="/admin">{{ texts.result }}</a>
     <a href="/login">{{ texts.login }}</a>
 </nav>
 
@@ -239,38 +350,36 @@ footer{
 
 <!-- ABOUT -->
 <section class="section">
-    <h2>About Online Voting</h2>
+    <h2>{{ texts.about_title }}</h2>
     <p style="max-width:800px;margin:auto;">
-        Online Voting System is a secure digital platform that enables citizens 
-        to cast votes remotely. It ensures transparency, eliminates duplicate 
-        voting, and provides instant election results.
+       {{ texts.about_desc }}
     </p>
 </section>
 
 <!-- FEATURES -->
 <section class="section section-gray">
-    <h2>Key Features</h2>
+    <h2>{{ texts.features_title }}</h2>
 
     <div class="features">
 
         <div class="feature-box">
-            <h3>🔐 Secure Voting</h3>
-            <p>Advanced authentication system</p>
+            <h3>🔐 {{ texts.secure_voting }}</h3>
+            <p>{{ texts.auth_system }}</p>
         </div>
 
         <div class="feature-box">
-            <h3>🧍 One Person One Vote</h3>
-            <p>Duplicate votes blocked</p>
+            <h3>🧍 {{ texts.one_vote }}</h3>
+            <p>{{ texts.no_duplicate }}</p>
         </div>
 
         <div class="feature-box">
-            <h3>⚡ Instant Results</h3>
-            <p>Live vote counting</p>
+            <h3>⚡ {{ texts.instant_results }}</h3>
+            <p>{{ texts.live_count }}</p>
         </div>
 
         <div class="feature-box">
-            <h3>🌐 Multi Language</h3>
-            <p>Accessible for all citizens</p>
+            <h3>🌐 {{ texts.multi_lang }}</h3>
+            <p>{{ texts.accessible }}</p>
         </div>
 
     </div>
@@ -278,44 +387,80 @@ footer{
 
 <!-- STATS -->
 <section class="section">
-    <h2>Election Statistics</h2>
+    <h2>{{ texts.stats }}</h2>
 
     <div class="stats">
         <div>
             <h1>10,000+</h1>
-            <p>Registered Voters</p>
+            <p>{{ texts.voters }}</p>
         </div>
 
         <div>
             <h1>8,500+</h1>
-            <p>Votes Casted</p>
+            <p>{{ texts.votes }}</p>
         </div>
 
         <div>
             <h1>6</h1>
-            <p>Political Parties</p>
+            <p>{{ texts.parties }}</p>
         </div>
     </div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section class="section section-gray">
-    <h2>How It Works</h2>
+    <h2>{{ texts.how }}</h2>
 
     <ol style="max-width:600px;margin:auto;text-align:left;line-height:1.8;">
-        <li>Register with Voter ID</li>
-        <li>Login securely</li>
-        <li>Select your party</li>
-        <li>Submit your vote</li>
-        <li>View election results</li>
+        <li>{{ texts.step1 }}</li>
+        <li>{{ texts.step2 }}</li>
+        <li>{{ texts.step3 }}</li>
+        <li>{{ texts.step4 }}</li>
+        <li>{{ texts.step5 }}</li>
     </ol>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <p>© 2026 Online Voting System</p>
-    <p>Election Commission of India</p>
+    <p>© 2026 {{ texts.footer1 }}</p>
+    <p>{{ texts.footer2 }}</p>
 </footer>
+<script>
+function updateTime() {
+    const now = new Date();
 
+    // Date
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    const date = now.toLocaleDateString('en-IN', options);
+
+    // Time (12-hour format)
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // 0 becomes 12
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    const time = hours + ":" + minutes + ":" + seconds + " " + ampm;
+
+    // Location (fixed India or your place)
+    const location = "📍 India";
+
+    document.getElementById("live-time").innerText =
+        date + " | " + time + " | " + location;
+}
+
+// Run every second
+setInterval(updateTime, 1000);
+updateTime();
+
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("show");
+}
+</script>
 </body>
 </html>
