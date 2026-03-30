@@ -7,13 +7,7 @@ app.secret_key = "voting_secret"
 @app.route("/constituency/<name>")
 def constituency_parties(name):
 
-    data = {
-        "Tiruttani": ["party_dmk.png", "party_admk.png", "party_tvk.png", "party_ntk.png", "party_pmk.png", "party_bjp.png", "party_congress.png"],
-        "Thiruvallur": ["party_dmk.png", "party_admk.png", "party_tvk.png", "party_ntk.png", "party_pmk.png", "party_bjp.png", "party_congress.png"],
-        "Ambattur": ["party_dmk.png", "party_admk.png", "party_tvk.png", "party_ntk.png", "party_pmk.png", "party_bjp.png", "party_congress.png"],
-    }
-
-    parties = data.get(name, [])
+    parties = []  # empty list
 
     return render_template("parties.html", name=name, parties=parties)
 # ---------------- CONSTITUENCY LIST ----------------
@@ -1219,12 +1213,8 @@ def logout():
 
 # ---------------- RUN ----------------
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
-    #---------------new----------------
 import os
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
