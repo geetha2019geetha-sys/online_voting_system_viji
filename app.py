@@ -3,6 +3,17 @@ from flask import Flask, render_template, request, redirect, session, url_for
 app = Flask(__name__)
 app.secret_key = "voting_secret"
 
+import json
+VOTES_FILE = "votes.json"
+
+def load_votes():
+    with open(VOTES_FILE, "r") as f:
+        return json.load(f)
+
+def save_votes(votes):
+    with open(VOTES_FILE, "w") as f:
+        json.dump(votes, f)
+
 # 👇 ADD THIS BELOW
 @app.route("/constituency/<name>")
 def constituency_parties(name):
@@ -1109,12 +1120,11 @@ def admin():
 
 @app.route("/secure_result")
 def secure_result():
-
     if "admin" not in session:
         return redirect("/admin")
 
+    votes = load_votes()  # read votes from JSON
     return render_template("result.html", votes=votes)
-
 # ---------------- REGISTER ----------------
 
 @app.route("/register", methods=["GET", "POST"])
@@ -1173,24 +1183,23 @@ def login():
 
 @app.route("/vote", methods=["GET", "POST"])
 def vote():
-
-    global votes
-
     if "user" not in session:
         return redirect("/login")
 
+    votes = load_votes()  # load current votes
+
     if request.method == "POST":
-
         party = request.form["party"]
-
         if party in votes:
-            votes[party] += 1
+            votes[party] += 1  # increment vote
 
+        # mark user as voted
         for user in users:
             if user["username"] == session["user"]:
                 user["voted"] = True
 
-        return redirect("/success")   # ✅ Now correct
+        save_votes(votes)  # save votes to JSON
+        return redirect("/success")
 
     return render_template("vote.html", parties=votes.keys())
 
