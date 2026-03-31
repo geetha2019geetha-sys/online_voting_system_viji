@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Constituency Details</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+            margin:0;
+        }
+
+        .header{
+            background:#003366;
+            color:white;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:12px 25px;
+        }
+
+        .title-section{
+            display:flex;
+            align-items:center;
+            gap:15px;
+        }
+
+        .logo{
+            width:70px;
+        }
+
+        .header h2{
+            margin:0;
+            font-size:20px;
+        }
+
+        .back-btn{
+            background:white;
+            color:#003366;
+            border:none;
+            padding:8px 16px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .back-btn:hover{
+            background:#e0e0e0;
+        }
+
+        .page-title{
+            text-align:center;
+            padding:25px 10px 10px;
+            font-size:26px;
+            font-weight:bold;
+            color:#003366;
+        }
+/* ===== CARD CONTAINER ===== */
+.container{
+    width:95%;
+    margin:30px auto;
+    display:flex;
+    flex-wrap:wrap;          /* allows next row */
+    gap:20px;
+    justify-content:flex-start;
+}
+
+/* ===== CARD STYLE ===== */
+.card{
+    background:white;
+    width:220px;             /* fixed width forces horizontal */
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    font-weight:600;
+    color:#003366;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    background:#e6f2ff;
+    transform:translateY(-5px);
+}
+
+
+        @media (max-width: 500px){
+            .card{
+                height:90px;
+                font-size:14px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="title-section">
+        <img src="{{ url_for('static', filename='tn_logo.png') }}" class="logo">
+        <h2>Tamil Nadu Government Online Voting System</h2>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+</div>
+
+<div class="page-title">
+    Tamil Nadu Constituencies
+</div>
+
+<div class="container">
+    {% for c in constituencies %}
+        <div class="card">
+            {{ c }}
+        </div>
+    {% endfor %}
+</div>
+
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+</body>
+</html>
